@@ -1,0 +1,23 @@
+*{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.main-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.logo{
+    font-size: x-large;
+}
+a{
+    font-size: larger;
+    text-decoration: none;
+    color: black;
+}
+.signIn-signUp{
+    font-size: x-large;
+}

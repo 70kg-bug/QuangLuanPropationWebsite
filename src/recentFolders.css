@@ -1,0 +1,58 @@
+.recentFolders{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.folder{
+    background-color: #0B2878;
+    padding-left: 12px;
+    padding-right: 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+    width: 214px;
+    height: 120px;
+    background: linear-gradient(to bottom, #0B2878 0%, #0B2878 36px,white 36px, white 100%);
+    margin-bottom: 24px;
+}
+.folderName{
+    display: inline;
+    padding-top:4px;
+    margin: 0px;
+    font-size: 20px;
+    color: white;
+}
+.date{
+    margin-left: 8px;
+    color: white;
+    font-size: x-small;
+}
+.content{
+    margin-top: 12px;
+    font-size: 12px;
+}
+.seeAllButton{
+    width: 100px;
+    height: 53px;
+    background-color: white;
+    border-radius: 32px 32px;
+}
+.viewFolderButton{
+    background-color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin-left: 10px;
+    padding-right: 30px;
+}
+div.folderContent{
+    display: flex;
+    align-items: center;
+
+}
+button:hover{
+    background-color: gray;
+}
