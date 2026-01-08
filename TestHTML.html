@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes Dashboard</title>
+    <link rel="stylesheet" href="TestCSS.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">MY NOTES</div>
+        <div class="auth-links">
+            <a href="#">Sign in</a> | <a href="#">Sign up</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section-recent">
+            <div class="section-header">
+                <h2>Recent folders</h2>
+                <button class="btn-see-all">See all</button>
+            </div>
+            <div class="recent-grid">
+                <div class="recent-card">
+                    <div class="recent-card-header">
+                        <span>Folder name</span> <small>12/3/2021</small>
+                    </div>
+                    <div class="recent-card-body">
+                        <p>Flimborax quindle spravuto mengen plarix doverin skemlata rovink talpres underbo flenstar vogrim.</p>
+                        <button class="arrow-btn">></button>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <section class="my-folders">
+            <div class="my-folders-controls">
+                <div class="title-group">
+                    <h2>My folders</h2>
+                    <p>See all your wonderful notes here</p>
+                </div>
+                <div class="search-bar">
+                    <i class="fa fa-search"></i>
+                    <input type="text" placeholder="Search by name of folders">
+                </div>
+                <button class="btn-create">
+                    <i class="fa fa-plus"></i> Create new folder
+                </button>
+            </div>
+
+            <div class="folders-grid">
+                <div class="folder-card">
+                    <div class="folder-header">
+                        <i class="fa fa-folder"></i> HCMUT
+                    </div>
+                    <div class="folder-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pulvinar...</p>
+                        <div class="folder-footer">
+                            <div class="tags">
+                                <span class="tag">Gym</span>
+                                <span class="tag">AWS</span>
+                            </div>
+                            <div class="note-count">12 ></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <nav class="pagination">
+            <a href="#">&lt;&lt;</a>
+            <a href="#">&lt;</a>
+            <a href="#">1</a>
+            <a href="#" class="active">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <span>...</span>
+            <a href="#">&gt;</a>
+            <a href="#">&gt;&gt;</a>
+        </nav>
+    </main>
+
+</body>
+</html>
