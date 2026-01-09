@@ -1,3 +1,6 @@
+.container{
+    padding: 16px;
+}
 .recentFolders{
     display: flex;
     flex-direction: row;
