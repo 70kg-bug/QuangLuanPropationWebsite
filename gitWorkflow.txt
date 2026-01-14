@@ -21,7 +21,6 @@ git config --global user.email <your email>
 git init
 git add.
 git commit -m "<You message>"
-git remote add origin https://github.com/70kg-bug/json.git
 git branch -M main
 git push -u origin main
 
@@ -32,4 +31,5 @@ git status
 
 npm install
 npm install axios
+
 
