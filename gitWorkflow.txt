@@ -2,10 +2,23 @@ clone:
 cd <your working directory>
 git init
 git clone <repository-url>
+
+push for the first time:
+cd <your working directory>
+git config --global user.name <your name>
+git config --global user.email <your email>
+git init
+git add.
+git commit -m "<You message>"
+git remote add origin https://github.com/70kg-bug/json.git
+git branch -M main
+git push -u origin main
+
 push:
 cd <your working directory>
 git config --global user.name <your name>
 git config --global user.email <your email>
+git init
 git add.
 git commit -m "<You message>"
 git remote add origin https://github.com/70kg-bug/json.git
@@ -14,4 +27,5 @@ git push -u origin main
 
 
 *useful command:
+
 git status
