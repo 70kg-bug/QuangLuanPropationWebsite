@@ -29,3 +29,7 @@ git push -u origin main
 *useful command:
 
 git status
+
+npm install
+npm install axios
+
