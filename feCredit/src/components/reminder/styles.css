@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div .body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    min-width: 260px;
+    margin: 0.5rem;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.body:hover{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.card {
+    width: 100%;
+    height: 350px;
+    max-width: 260px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #1a365d;
+}
+
+.card-header {
+    background-color: #1a365d;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    color: white;
+    border-radius: 100%;
+    transition: background-color 0.15s ease-in;
+}
+.logo:focus{
+    background-color:#2c5282;
+}
+.brand-name {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.card-body {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 8px;
+}
+
+.card-text {
+    color: #4a5568;
+    font-size: 16;
+    line-height: 1.6;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+    align-items: flex-end;
+}
+
+.tags {
+    display: flex;
+    gap: 12px;
+}
+
+.tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #021e73;
+    color: #ffffff;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    height: 28px;
+    width: 76px;
+}
+
+.tag:hover {
+    background-color: #2c5282;
+}
+
+.arrow-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #1a365d;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.arrow-btn:hover {
+    background-color: #f7fafc;
+}
+
+.arrow-btn svg {
+    width: 30px;
+    height: 30px;
+}
+.btn-add-task {
+    display: flex;
+    width: 100%;
+    border-radius: 16px;
+    color: #0b57d0;
+    background-color: white;
+    border: none;
+    padding-left: 12px;
+    padding-right: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 16px;
+    font-weight: 580;
+    gap: 16px;
+}
+.btn-add-task:hover{
+    background-color:#83b3ff42;
+    transition : background-color 0.2s ease-in-out;
+}
+.reminder-input-form{
+    display: flex;
+    flex-direction: column;
+    background-color: #cadfff83;
+    margin-top: 8px;
+    padding: 4px;
+    border-radius: 4px;
+}
+.reminder-title-input-field{
+    width: 90%;
+    padding: 4px;
+    border: none;
+    background-color: #cadfff00;
+}
+.reminder-content-input-field{
+    width: 90%;
+    padding: 4px;
+    border: none;
+    background-color: #cadfff00;
+}
+.save-button{
+    color: white;
+    background-color: #021e73;
+    border:none;
+    transition: 0.2s ease-in-out;
+    width: 40px;
+    margin-top: 2px;
+}
+.save-button:focus{
+    background-color: #01155259;
+}
+.save-button:hover{
+    border-radius: 8px;
+}

@@ -1,0 +1,9 @@
+https://react.dev/reference/react-dom/components/input - "input types in React"
+https://mongoosejs.com/docs/api/model.html - "mongoose objects' methods document" 
+{
+https://mui.com/material-ui/react-dialog/
+https://www.geeksforgeeks.org/reactjs/how-to-create-dialog-box-in-reactjs-2/ #for simple code but some features shocased may not work due to version conflict
+} - popup -> modal -> dialogue 
+https://mui.com/material-ui/all-components/ - reactjs components showcase with code using mui
+https://www.geeksforgeeks.org/node-js/how-to-get-data-from-2-different-collections-of-mongodb-using-node-js/ - retrieving data from 2 different collections within the same cluster in mongodb
+https://legacy.reactjs.org/docs/conditional-rendering.html - conditional rendering

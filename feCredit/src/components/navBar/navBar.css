@@ -1,0 +1,40 @@
+div .nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 254px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  padding-top: 16px;
+  padding-left: 20px;
+  border-right: 1px solid black;
+}
+
+div .list-item {
+    display: flex;
+    align-items: center;
+}
+button.nav {
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    width: 90%;
+    gap: 16px;
+}
+li {
+    list-style-type: none;
+}
+.nav:hover{
+    background-color: gainsboro;
+}
+.nav:focus{
+    background-color: #c2e7ff;
+    transition: background-color 0.2s ease-in-out ;
+    font-weight: 500;
+}

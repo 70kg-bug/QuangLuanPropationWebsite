@@ -1,0 +1,65 @@
+
+/* ── Reset ── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Button ── */
+.btn-create-folder {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 22px 12px 14px;
+    background-color: #1a2d6b;  /* dark navy */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: background-color 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+    box-shadow: 0 2px 8px rgba(26, 45, 107, 0.30);
+    user-select: none;
+}
+
+/* Icon circle */
+.btn-create-folder__icon {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 300;
+    transition: border-color 0.18s ease;
+    background-color: #f0f2f5;
+    color: black;
+    font-weight: 700;
+}
+
+/* Hover state */
+.btn-create-folder:hover {
+    background-color: #243580;
+    /* box-shadow: 0 4px 14px rgba(26, 45, 107, 0.40); */
+    /* transform: translateY(-1px); */
+}
+
+/* Active / pressed state */
+.btn-create-folder:active {
+    background-color: #152258;
+    transform: translateY(0px);
+    box-shadow: 0 2px 6px rgba(26, 45, 107, 0.30);
+}
+
+/* Focus ring for accessibility */
+.btn-create-folder:focus-visible {
+    outline: 3px solid #5b80f5;
+    outline-offset: 3px;
+}

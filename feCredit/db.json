@@ -1,0 +1,37 @@
+{
+  "reminders": [
+    {
+      "id": "1104",
+      "title": "",
+      "content": "",
+      "priority": "High",
+      "tags": "tags"
+    },
+    {
+      "id": "a1e3",
+      "title": "",
+      "content": "",
+      "priority": "High",
+      "tags": "tags"
+    }
+  ],
+  "tags": [
+    {
+      "id": "e1e6",
+      "tag": "sdfds"
+    },
+    {
+      "id": "ce75",
+      "tag": "sport"
+    },
+    {
+      "id": "1b23",
+      "tag": "sport"
+    },
+    {
+      "id": "3f37",
+      "tag": "sport"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

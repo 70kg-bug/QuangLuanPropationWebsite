@@ -1,0 +1,49 @@
+*, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+ 
+    body {
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f5f5f5;
+    }
+ 
+    /* ── Button ── */
+    .btn-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #1a365d;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+    }
+ 
+    /* ── Checkmark SVG ── */
+    .btn-check svg {
+      width: 22px;
+      height: 22px;
+      stroke: #ffffff;
+      stroke-width: 2.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+ 
+    /* ── Hover ── */
+    .btn-check:hover {
+      background-color: #38629d;
+    }
+ 
+    /* ── Active ── */
+
+    /* ── Focus ── */
+    .btn-check:focus-visible {
+      outline-offset: 4px;
+    }
