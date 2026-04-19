@@ -17,6 +17,11 @@ const update = (id, newObject) => { //this route is specified for adding a new t
   return request.then(response => response.data)
 }
 
+const deleteTask = (reminderId, taskIndex) => {
+  const request = axios.delete(`${remindersBaseUrl}/${reminderId}/tasks/${taskIndex}`)
+  return request.then(response => response.data)
+}
+
 const del = (id) => {
   const request = axios.delete(`${remindersBaseUrl}/${id}`)
   return request.then(response => response.data)
@@ -43,5 +48,6 @@ export default {
   del,
   getTag, 
   createTag,
-  getReminder
+  getReminder,
+  deleteTask
 }

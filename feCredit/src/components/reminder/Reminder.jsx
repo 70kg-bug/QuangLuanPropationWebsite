@@ -2,51 +2,23 @@ import './styles.css';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import { useState } from 'react';
-import noteService from '../../service/service'
+import IconButton from '@mui/material/IconButton';
+import DoneIcon from '@mui/icons-material/Done';
 
-const Reminder = ({id, title, tags}) => {
-    const [showInput, setShowInput] = useState(false)
+const Reminder = ({id, title, tags, tasks = [], handleFormSubmitToAddTask, handleDeleteTask}) => {
     const [titleInputValue, setTitleInputValue] = useState("")
     const [contentInputValue, setContentInputValue] = useState("")
+    const [showTaskInput, setShowTaskInput] = useState(false)
 
-    /*
-    add an useEffect hook to query all the tasks for this reminder whenever the page renders.
-    */
-
-    const getId = () => {
-        console.log(id)
-        setShowInput(!showInput)
-        noteService
-        .getReminder(id)
-        .then((rem) => {
-            console.log(rem.tasks)
-        })
-    }
     const handleTitleInputChange = (event) => {
         setTitleInputValue(event.target.value)                                                                  
     }
     const handleContentInputChange = (event) => {
         setContentInputValue(event.target.value)                                                                  
     }
-    const handleFormSubmit = (e) => {
-        e.preventDefault()
-        console.log(titleInputValue)
-        console.log(contentInputValue)
-
-        const addedTask = {
-            newTasksTitle: titleInputValue,
-            newTasksContent: contentInputValue
-        }
-        noteService
-        .update(id, addedTask)
-        .then((newTask) => {
-            console.log(newTask)
-        })
-
-        setTitleInputValue("")
-        setContentInputValue("")
-        setShowInput(!showInput)
-    }
+      const chageShowTaskInput = () => {
+    setShowTaskInput(!showTaskInput)
+  }
     return (
         <div className='body'>
             <div className="card">
@@ -64,36 +36,50 @@ const Reminder = ({id, title, tags}) => {
                 </div>
                 
                 <div className="card-body">
-                    <button className='btn-add-task' onClick={getId}><NoteAddIcon/><span>Add a new task</span></button>
-                    {showInput &&
+                    <button className='btn-add-task' onClick={chageShowTaskInput}><NoteAddIcon/><span>Add a new task</span></button>
+                    {showTaskInput &&
                         <div>                      
-                            <form onSubmit={handleFormSubmit} className='reminder-input-form' id='reminder'>
+                            <form onSubmit={handleFormSubmitToAddTask} className='reminder-input-form' id='reminder'>
                                 <div>
                                     <input type="text" name='title' value={titleInputValue} placeholder='Title' onChange={handleTitleInputChange} className='reminder-title-input-field'/>
                                 </div>
                                 <div className='reminder-content-input-field'>
                                     <input type="text" name='content' value={contentInputValue} placeholder='Detail' onChange={handleContentInputChange} className='reminder-content-input-field' />
                                 </div>
+                                <div>
+                                    <input type="text" name='id' value={id} readOnly style={{display: 'none'}}/>
+                                </div>
+                                <div>
+                                    <input type="text" name='taskId' value={tasks.length} readOnly style={{display: 'none'}}/>
+                                </div>
                             </form>
                             <button type='submit' className='save-button' form='reminder'>Save</button>
                         </div>
                     }
-                    <p className="card-text">
-                        
-                    </p>
+
+                    <ul>
+                        {tasks.map((task, index) => 
+                            <li key={`${id}-${index}`}>
+                                {task.title}
+                                <IconButton onClick={() => handleDeleteTask?.(id, index)}>
+                                    <DoneIcon/>
+                                </IconButton>
+                            </li>
+                        )}
+                    </ul>
+                </div>
+
+                <div className="card-footer">
+                    {/* <div className="tags">
+                        <button className="tag">Gym</button>
+                        <button className="tag">AWS</button>
+                    </div> */}
                     
-                    <div className="card-footer">
-                        {/* <div className="tags">
-                            <button className="tag">Gym</button>
-                            <button className="tag">AWS</button>
-                        </div> */}
-                        
-                        {/* <button className="arrow-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="[w3.org](http://www.w3.org/2000/svg)">
-                                <path d="M9 18L15 12L9 6" stroke="#1a365d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </button> */}
-                    </div>
+                    {/* <button className="arrow-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="[w3.org](http://www.w3.org/2000/svg)">
+                            <path d="M9 18L15 12L9 6" stroke="#1a365d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                    </button> */}
                 </div>
             </div>
         </div>

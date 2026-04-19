@@ -22,6 +22,7 @@ const App = () => {
   const [lowPriorityReminders, setLowPriorityReminders] = useState([])
   const [show, setShow] = useState(false)
   const [tags, setTags] = useState([])
+  
 
 
   const hook = () => {
@@ -51,13 +52,15 @@ const App = () => {
     // Or you can work with it as a plain object:
     const formJson = Object.fromEntries(formData.entries());
     const reminderTitle = formJson.title
+    const reminderContent = formJson.content
     const reminderPriority = formJson.priority
     const addedTag = formJson.tag
 
     const newReminder = {
       title: reminderTitle,
+      content: reminderContent,
       priority: reminderPriority,
-      tags:"tags",
+      tags: "tags",
       tasks: []
     }
 
@@ -140,6 +143,72 @@ const App = () => {
   //   })
   // } -> a demo of the usage of getReminder in axios which links to app.get('/api/notes/:id' in express js
 
+  const handleFormSubmitToAddTask = (e) => {
+    e.preventDefault()
+
+    // Read the form data
+    const form = e.target;
+    const formData = new FormData(form);
+    // Or you can work with it as a plain object:
+    const formJson = Object.fromEntries(formData.entries());
+    const title = formJson.title
+    const content = formJson.content
+    const id = formJson.id
+    const taskId = formJson.taskId
+    const addedTask = {
+        'taskId': taskId,
+        'title': title,
+        'content': content
+    }
+    noteService
+    .update(id, addedTask)
+    .then((newTask) => {
+        console.log(newTask)
+    })
+
+    setHighPriorityReminders(
+        highPriorityReminders.map(reminder =>
+            reminder.id === id
+                ? { ...reminder, tasks: [...reminder.tasks, addedTask] }
+                : reminder
+        )
+    )
+
+    // Also update other priority lists
+    setMidPriorityReminders(
+        midPriorityReminders.map(reminder =>
+            reminder.id === id
+                ? { ...reminder, tasks: [...reminder.tasks, addedTask] }
+                : reminder
+        )
+    )
+
+    setLowPriorityReminders(
+        lowPriorityReminders.map(reminder =>
+            reminder.id === id
+                ? { ...reminder, tasks: [...reminder.tasks, addedTask] }
+                : reminder
+        )
+    )
+  }
+
+  const handleDeleteTask = (reminderId, taskIndex) => {
+    const updateReminders = (reminders) =>
+      reminders.map(reminder =>
+        reminder.id === reminderId
+          ? { ...reminder, tasks: reminder.tasks.filter((_, idx) => idx !== taskIndex) }
+          : reminder
+      )
+    
+    noteService
+    .deleteTask(reminderId, taskIndex)
+
+    setHighPriorityReminders(updateReminders)
+    setMidPriorityReminders(updateReminders)
+    setLowPriorityReminders(updateReminders)
+    console.log(taskIndex)
+  }
+
   return (
     <>
       <NavBar
@@ -156,6 +225,8 @@ const App = () => {
               handleFormSubmit={handleFormSubmit}
               inputTitle={inputTitle}
               handleTitleChange={handleTitleChange}
+              inputContent={inputContent}
+              handleContentChange={handleContentChange}
               handleClose={handleClose}
             />
           </div>
@@ -178,6 +249,9 @@ const App = () => {
           id={reminder.id}
           title={reminder.title}
           tags={reminder.tag}
+          tasks={reminder.tasks}
+          handleFormSubmitToAddTask={handleFormSubmitToAddTask}
+          handleDeleteTask={handleDeleteTask}
           />
           ))}
           {midPriorityReminders.map((reminder) => (
@@ -187,6 +261,9 @@ const App = () => {
           content={reminder.content}
           priority={reminder.priority}
           tags={reminder.tag}
+          tasks={reminder.tasks}
+          handleFormSubmitToAddTask={handleFormSubmitToAddTask}
+          handleDeleteTask={handleDeleteTask}
           />
           ))}
           {lowPriorityReminders.map((reminder) => (
@@ -196,6 +273,9 @@ const App = () => {
           content={reminder.content}
           priority={reminder.priority}
           tags={reminder.tag}
+          tasks={reminder.tasks}
+          handleFormSubmitToAddTask={handleFormSubmitToAddTask}
+          handleDeleteTask={handleDeleteTask}
           />
           ))}
       </main>

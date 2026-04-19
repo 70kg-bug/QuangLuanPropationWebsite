@@ -58,7 +58,7 @@ app.post('/api/notes', (request, response) => {
 })
 app.put('/api/notes/:id', async (req, res, next) => {
   try {
-    const { newTasksTitle, newTasksContent } = req.body
+    const { title, content } = req.body
     const idx = req.params.id
 
     const updatedNote = await Note.findByIdAndUpdate( //the async await keywords here are very important 
@@ -66,12 +66,12 @@ app.put('/api/notes/:id', async (req, res, next) => {
       {//if no async await used, the json() method will try to serialize an unresolved promise/query which will raise "Converting circular structure to JSON" error
         $push: {//we don't have to use updateNote.save() here because the $push:{...} has saved the added task to the reminder model for us
           tasks: {
-            title: newTasksTitle,
-            content: newTasksContent
+            title: title,
+            content: content,
           }
         }
       },
-      { new: true }
+      { returnDocument: 'after' }
     )
 
     if (updatedNote) {
@@ -85,6 +85,33 @@ app.put('/api/notes/:id', async (req, res, next) => {
   }
 })
 
+app.delete('/api/notes/:id/tasks/:taskIndex', async (req, res, next) => {
+  try {
+    const idx = req.params.id
+    const taskIndex = Number.parseInt(req.params.taskIndex, 10)
+
+    if (Number.isNaN(taskIndex)) {
+      return res.status(400).json({ error: 'taskIndex must be a number' })
+    }
+
+    const note = await Note.findById(idx)
+    if (!note) {
+      return res.status(404).json({ error: 'note not found' })
+    }
+
+    if (!Array.isArray(note.tasks) || taskIndex < 0 || taskIndex >= note.tasks.length) {
+      return res.status(400).json({ error: 'invalid task index' })
+    }
+
+    note.tasks.splice(taskIndex, 1)
+    const updatedNote = await note.save()
+
+    res.status(200).json(updatedNote)
+  } catch (err) {
+    console.log(err.message)
+    res.status(500).send(err.message)
+  }
+})
 //================================================================================================================\\
  
 app.get('/api/tags', (req, res) => {

@@ -3,11 +3,11 @@ import SaveButton from "../btnSaveReminder/saveButton.jsx"
 import CancelButton from "../btnCancel/btnCancel.jsx"
 import { useState } from "react"
 
-const Form = ({handleFormSubmit, inputTitle, handleTitleChange, handleClose}) => {
+const Form = ({handleFormSubmit, inputTitle, handleTitleChange, inputContent, handleContentChange, handleClose}) => {
     const [inputTag, setInputTag] = useState("")
 
     const handleInputTagChange = (e) => {
-        setInputTag(e.target.value) 
+        setInputTag(e.target.value)
     }
 
     return (
@@ -22,7 +22,7 @@ const Form = ({handleFormSubmit, inputTitle, handleTitleChange, handleClose}) =>
             
 
             <p className="title-input-field">
-              <input className="title"  name="title" type="text" placeholder="Title" value={inputTitle} onChange={handleTitleChange}/>
+              <input className="title" name="title" type="text" placeholder="Title" value={inputTitle} onChange={handleTitleChange}/>
             </p>
             <hr />
             <p className="tag-input-field">
